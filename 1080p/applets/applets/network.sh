@@ -56,10 +56,10 @@ case $chosen in
 		fi
         ;;
     $bluetoothctl)
-        $TERM -e bluetoothctl
+        $TERMINAL -e bluetoothctl
         ;;
     $launch_cli)
-        $TERM -e nmtui
+        $TERMINAL -e nmtui
         ;;
     $launch)
         nm-connection-editor
