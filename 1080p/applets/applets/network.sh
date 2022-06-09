@@ -39,11 +39,11 @@ else
 fi
 
 ## Icons
-bmon=""
+bluetoothctl=""
 launch_cli=""
 launch=""
 
-options="$connected\n$bmon\n$launch_cli\n$launch"
+options="$connected\n$bluetoothctl\n$launch_cli\n$launch"
 
 ## Main
 chosen="$(echo -e "$options" | $rofi_command -p "$SSID" -dmenu $active $urgent -selected-row 1)"
@@ -53,16 +53,15 @@ case $chosen in
 			nmcli radio wifi off
 		else
 			nmcli radio wifi on
-		fi 
+		fi
         ;;
-    $bmon)
-        termite -e bmon
+    $bluetoothctl)
+        $TERM -e bluetoothctl
         ;;
     $launch_cli)
-        termite -e nmtui
+        $TERM -e nmtui
         ;;
     $launch)
         nm-connection-editor
         ;;
 esac
-
